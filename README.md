@@ -50,8 +50,9 @@ npm start
 ```
 
 Navigate to [http://localhost:3000](http://localhost:3000) and upload an image to blob storage.
+![Captura de tela de 2023-09-27 10-19-34](https://github.com/ailtontmarques/storage-blob-upload-from-webapp-node/assets/40073287/b08c08ff-1084-4c79-a2df-c19675e24255)
 
 You can use the [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to view blob containers and verify your upload is successful.
 # storage-blob-upload-from-webapp-node
-# storage-blob-upload-from-webapp-node
-# storage-blob-upload-from-webapp-node
+
+
