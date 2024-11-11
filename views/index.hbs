@@ -1,35 +1,58 @@
-<h1>Upload files</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+  <h1>Upload files</h1>
 
-<form id="upload-form" action="/upload" method="POST" enctype="multipart/form-data">
-  <div class="upload-container">
-    <label for="image">Select and image to upload: </label>
-    <input id="file-picker" type="file" name="image">
+  <form id="upload-form" action="/upload" method="POST" enctype="multipart/form-data">
+    <div class="upload-container">
+      <label for="image">Select and image to upload: </label>
+      <input id="file-picker" type="file" name="image">
+    </div>
+    <div>
+      <input type="submit" value="Upload Image">
+    </div>
+  </form>
+
+  <p id="message">{{message}}</p>
+
+  <h2>Generated Thumbnails</h2>
+  <div class="container-fluid">
+  {{!-- {{#each this.thumbnails}}
+    <img src="https://{{../accountName}}.blob.core.windows.net/{{../containerName}}/{{name}}">
+  {{/each}} --}}
+  {{#each this.thumbnails}}
+  <div class="row">
+  <div class="col-sm-4">{{name}}</div>
+  <div class="col-sm-8">
+    <a
+      href="https://{{../accountName}}.blob.core.windows.net/{{../containerName}}/{{name}}"
+      target="_blank"
+    >
+      https://{{../accountName}}.blob.core.windows.net/{{../containerName}}/{{name}}
+    </a>
   </div>
-  <div>
-    <input type="submit" value="Upload Image">
   </div>
-</form>
+  {{/each}}
 
-<p id="message">{{message}}</p>
 
-<h2>Generated Thumbnails</h2>
-{{!-- {{#each this.thumbnails}}
-  <img src="https://{{../accountName}}.blob.core.windows.net/{{../containerName}}/{{name}}">
-{{/each}} --}}
+  <hr>
+  <p>This app has no official privacy policy.<br />Your data will be uploaded to a service in order to produce a thumbnail.</p>
+  <span style="display: none;">Your images will be public once you upload them and there is no automated way to remove them.</span> 
+  </div>
 
-{{#each this.thumbnails}}
-  <a
-    href="https://{{../accountName}}.blob.core.windows.net/{{../containerName}}/{{name}}"
-    target="_blank"
-  >
-    https://{{../accountName}}.blob.core.windows.net/{{../containerName}}/{{name}}
-  </a><br />
-{{/each}}
+</div>
 
-<hr>
-<p>This app has no official privacy policy.<br />Your data will be uploaded to a service in order to produce a thumbnail.</p>
-<span style="display: none;">Your images will be public once you upload them and there is no automated way to remove them.</span> 
-
+</body>
+</html>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
 
